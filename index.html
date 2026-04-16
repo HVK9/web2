@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>H-V-K-9</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* Reset & Base Variables */
+    :root {
+      --bg-color: #0b0c10;
+      --card-bg: rgba(22, 23, 27, 0.65);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --text-main: #ffffff;
+      --text-muted: #94a3b8;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Outfit', sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg-color);
+      /* Dynamic Background Animation */
+      background-image:
+        radial-gradient(circle at 15% 50%, rgba(30, 58, 138, 0.25), transparent 25%),
+        radial-gradient(circle at 85% 30%, rgba(139, 92, 246, 0.2), transparent 25%);
+      background-size: 100% 100%;
+      padding: 20px;
+      overflow-x: hidden;
+    }
+
+    /* Glassmorphism Card */
+    .profile-card {
+      position: relative;
+      width: 100%;
+      max-width: 440px;
+      background: var(--card-bg);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--card-border);
+      border-radius: 30px;
+      padding: 45px 35px;
+      text-align: center;
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+
+      /* Entry Animation */
+      opacity: 0;
+      transform: translateY(40px) scale(0.95);
+      animation: cardEntrance 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+    }
+
+    /* Avatar Section */
+    .avatar-wrapper {
+      position: relative;
+      width: 110px;
+      height: 110px;
+      margin: 0 auto 20px auto;
+      border-radius: 50%;
+      padding: 4px;
+      background: linear-gradient(135deg, #3b82f6, #8b5cf6, #ec4899);
+      animation: spinGradient 4s linear infinite;
+    }
+
+    .avatar {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      background-color: #1e1e24;
+      /* Background if no image */
+      border: 3px solid #16171b;
+    }
+
+    /* Text Content */
+    .name {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--text-main);
+      letter-spacing: 2px;
+      margin-bottom: 5px;
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+    }
+
+    .bio {
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: var(--text-muted);
+      margin-bottom: 35px;
+      line-height: 1.5;
+    }
+
+    /* Social Links Grid - Responsive Fix */
+    .social-grid {
+      display: flex;
+      flex-wrap: wrap;
+      /* Fix: Allow wrapping on small screens */
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 30px;
+    }
+
+    .social-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 55px;
+      height: 55px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      color: var(--text-main);
+      font-size: 1.4rem;
+      text-decoration: none;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+      /* Staggered Animation base */
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    /* Animations & Hover Effects */
+    .social-btn:hover {
+      transform: translateY(-8px) scale(1.08);
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    /* Brand specific glow on hover */
+    .social-btn.facebook:hover {
+      box-shadow: 0 10px 20px rgba(24, 119, 242, 0.4);
+      text-shadow: 0 0 10px #1877f2;
+    }
+
+    .social-btn.discord:hover {
+      box-shadow: 0 10px 20px rgba(88, 101, 242, 0.4);
+      text-shadow: 0 0 10px #5865F2;
+    }
+
+    .social-btn.zalo:hover {
+      box-shadow: 0 10px 20px rgba(0, 104, 255, 0.4);
+      text-shadow: 0 0 10px #0068ff;
+    }
+
+    .social-btn.roblox:hover {
+      box-shadow: 0 10px 20px rgba(255, 255, 255, 0.2);
+      text-shadow: 0 0 10px #ffffff;
+    }
+
+    .social-btn.riot:hover {
+      box-shadow: 0 10px 20px rgba(235, 0, 41, 0.4);
+      text-shadow: 0 0 10px #eb0029;
+    }
+
+    /* Footer */
+    .footer {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      opacity: 0.7;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    /* Keyframes */
+    @keyframes cardEntrance {
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    @keyframes spinGradient {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes staggerIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Staggered Delay Classes */
+    .delay-1 {
+      animation: staggerIn 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) 0.3s forwards;
+    }
+
+    .delay-2 {
+      animation: staggerIn 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) 0.4s forwards;
+    }
+
+    .delay-3 {
+      animation: staggerIn 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) 0.5s forwards;
+    }
+
+    .delay-4 {
+      animation: staggerIn 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) 0.6s forwards;
+    }
+
+    .delay-5 {
+      animation: staggerIn 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) 0.7s forwards;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 480px) {
+      .profile-card {
+        padding: 35px 20px;
+      }
+
+      .name {
+        font-size: 1.8rem;
+      }
+
+      .social-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="profile-card">
+
+    <!-- 1. AVATAR -->
+    <!-- CHÚ Ý: Mở file này bằng Notepad/VSCode, tìm thẻ img và thay bằng link ảnh thật của bạn. -->
+    <div class="avatar-wrapper">
+      <img src="https://api.dicebear.com/7.x/bottts/svg?seed=HVK9" alt="Avatar HVK" class="avatar">
+    </div>
+
+    <!-- 2. THÔNG TIN CÁ NHÂN -->
+    <h1 class="name">H-V-K-9</h1>
+    <p class="bio">Gamer & Developer<br>Welcome to my personal space</p>
+
+    <!-- 3. MẠNG XÃ HỘI (Responsive Grid & Animation) -->
+    <!-- CHÚ Ý: Đổi link href="#" bằng link thực tế của bạn -->
+    <div class="social-grid">
+      <!-- Facebook -->
+      <a href="https://www.facebook.com/nguyen.quang.bao.1710" target="_blank" class="social-btn facebook delay-1"
+        title="Facebook">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+      <!-- Discord -->
+      <a href="https://discord.gg/fejFKJv7" target="_blank" class="social-btn discord delay-2" title="Discord">
+        <i class="fab fa-discord"></i>
+      </a>
+      <!-- Zalo -->
+      <a href="https://zaloapp.com/qr/p/12x7zaah2dxbu?src=qr" target="_blank" class="social-btn zalo delay-3"
+        title="Zalo">
+        <i class="fas fa-comment-dots"></i>
+      </a>
+      <!-- Roblox -->
+      <a href="https://www.roblox.com/users/2791712461/profile" target="_blank" class="social-btn roblox delay-4"
+        title="Roblox">
+        <i class="fab fa-roblox"></i>
+      </a>
+      <!-- Riot Games (Blank for now) -->
+      <a href="#" target="_blank" class="social-btn riot delay-5" title="Riot Games">
+        <i class="fas fa-gamepad"></i>
+      </a>
+    </div>
+
+    <!-- 4. FOOTER -->
+    <div class="footer">
+      ✦ Kết nối cùng nhau ✦
+    </div>
+
+  </div>
+
+</body>
+
+</html>
