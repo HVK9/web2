@@ -1,290 +1,296 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="vi" class="dark">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>H-V-K-9</title>
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    /* Reset & Base Variables */
-    :root {
-      --bg-color: #0b0c10;
-      --card-bg: rgba(22, 23, 27, 0.65);
-      --card-border: rgba(255, 255, 255, 0.08);
-      --text-main: #ffffff;
-      --text-muted: #94a3b8;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>HVK • Bio Profile</title>
+    <meta name="description" content="Trang cá nhân HVK - ColorOS Aquamorphic Design">
+    <link rel="icon" href="logo5.png" type="image/png">
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Outfit', sans-serif;
-    }
+    <!-- Google Fonts: Plus Jakarta Sans (Font chữ hiện đại, rõ nét chuẩn ColorOS) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
 
-    body {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: var(--bg-color);
-      /* Dynamic Background Animation */
-      background-image:
-        radial-gradient(circle at 15% 50%, rgba(30, 58, 138, 0.25), transparent 25%),
-        radial-gradient(circle at 85% 30%, rgba(139, 92, 246, 0.2), transparent 25%);
-      background-size: 100% 100%;
-      padding: 20px;
-      overflow-x: hidden;
-    }
+    <!-- Tailwind CSS (via CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
 
-    /* Glassmorphism Card */
-    .profile-card {
-      position: relative;
-      width: 100%;
-      max-width: 440px;
-      background: var(--card-bg);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid var(--card-border);
-      border-radius: 30px;
-      padding: 45px 35px;
-      text-align: center;
-      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    <!-- Remix Icon (Bộ Icon nét đậm, sắc nét chuẩn ColorOS) -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet">
 
-      /* Entry Animation */
-      opacity: 0;
-      transform: translateY(40px) scale(0.95);
-      animation: cardEntrance 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
-    }
+    <!-- Custom CSS: ColorOS 16/17 Aquamorphic Design (Tối ưu hóa hiệu suất tối đa) -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    /* Avatar Section */
-    .avatar-wrapper {
-      position: relative;
-      width: 110px;
-      height: 110px;
-      margin: 0 auto 20px auto;
-      border-radius: 50%;
-      padding: 4px;
-      background: linear-gradient(135deg, #3b82f6, #8b5cf6, #ec4899);
-      animation: spinGradient 4s linear infinite;
-    }
+        html,
+        body {
+            min-height: 100%;
+            font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+            color: #f8fafc;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
 
-    .avatar {
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      object-fit: cover;
-      background-color: #1e1e24;
-      /* Background if no image */
-      border: 3px solid #16171b;
-    }
+        /* Cho phép bôi đen văn bản mượt mà, màu sắc chuẩn ColorOS Aqua */
+        ::selection {
+            background-color: #00d2c4;
+            color: #000000;
+        }
 
-    /* Text Content */
-    .name {
-      font-size: 2.2rem;
-      font-weight: 800;
-      color: var(--text-main);
-      letter-spacing: 2px;
-      margin-bottom: 5px;
-      text-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
-    }
+        /* Thanh cuộn mảnh, mượt mà */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 999px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(0, 210, 196, 0.5);
+        }
 
-    .bio {
-      font-size: 0.95rem;
-      font-weight: 300;
-      color: var(--text-muted);
-      margin-bottom: 35px;
-      line-height: 1.5;
-    }
+        /* Thẻ Glassmorphism chuẩn ColorOS 16/17 */
+        .coloros-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.10) 0%, rgba(255, 255, 255, 0.04) 100%);
+            backdrop-filter: blur(24px) saturate(180%);
+            -webkit-backdrop-filter: blur(24px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), inset 0 1px 1px rgba(255, 255, 255, 0.25);
+            border-radius: 28px;
+            transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+        }
 
-    /* Social Links Grid - Responsive Fix */
-    .social-grid {
-      display: flex;
-      flex-wrap: wrap;
-      /* Fix: Allow wrapping on small screens */
-      justify-content: center;
-      gap: 15px;
-      margin-bottom: 30px;
-    }
+        .coloros-card:hover {
+            border-color: rgba(0, 210, 196, 0.35);
+        }
 
-    .social-btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 55px;
-      height: 55px;
-      border-radius: 16px;
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      color: var(--text-main);
-      font-size: 1.4rem;
-      text-decoration: none;
-      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        /* Nút bấm xúc giác ColorOS */
+        .coloros-btn {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.10), rgba(255, 255, 255, 0.04));
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-radius: 20px;
+            transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+        }
 
-      /* Staggered Animation base */
-      opacity: 0;
-      transform: translateY(20px);
-    }
+        .coloros-btn:hover {
+            transform: translateY(-2px) scale(1.02);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.08));
+            border-color: rgba(0, 210, 196, 0.45);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
+        }
 
-    /* Animations & Hover Effects */
-    .social-btn:hover {
-      transform: translateY(-8px) scale(1.08);
-      background: rgba(255, 255, 255, 0.1);
-      border-color: rgba(255, 255, 255, 0.2);
-    }
+        .coloros-btn:active {
+            transform: scale(0.98);
+        }
 
-    /* Brand specific glow on hover */
-    .social-btn.facebook:hover {
-      box-shadow: 0 10px 20px rgba(24, 119, 242, 0.4);
-      text-shadow: 0 0 10px #1877f2;
-    }
+        /* Khung Avatar bo góc Squircle phát sáng nhẹ */
+        .coloros-avatar-frame {
+            border-radius: 28px;
+            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.2), 0 0 25px rgba(0, 210, 196, 0.35), 0 15px 35px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
 
-    .social-btn.discord:hover {
-      box-shadow: 0 10px 20px rgba(88, 101, 242, 0.4);
-      text-shadow: 0 0 10px #5865F2;
-    }
+        .coloros-avatar-frame:hover {
+            transform: scale(1.03);
+            box-shadow: 0 0 0 3px rgba(0, 210, 196, 0.5), 0 0 35px rgba(0, 210, 196, 0.5), 0 20px 40px rgba(0, 0, 0, 0.6);
+        }
 
-    .social-btn.zalo:hover {
-      box-shadow: 0 10px 20px rgba(0, 104, 255, 0.4);
-      text-shadow: 0 0 10px #0068ff;
-    }
+        /* Thanh tiến trình kỹ năng */
+        .skill-track {
+            height: 9px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 999px;
+            overflow: hidden;
+            position: relative;
+        }
 
-    .social-btn.roblox:hover {
-      box-shadow: 0 10px 20px rgba(255, 255, 255, 0.2);
-      text-shadow: 0 0 10px #ffffff;
-    }
-
-    .social-btn.riot:hover {
-      box-shadow: 0 10px 20px rgba(235, 0, 41, 0.4);
-      text-shadow: 0 0 10px #eb0029;
-    }
-
-    /* Footer */
-    .footer {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      opacity: 0.7;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-    }
-
-    /* Keyframes */
-    @keyframes cardEntrance {
-      to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-      }
-    }
-
-    @keyframes spinGradient {
-      0% {
-        transform: rotate(0deg);
-      }
-
-      100% {
-        transform: rotate(360deg);
-      }
-    }
-
-    @keyframes staggerIn {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    /* Staggered Delay Classes */
-    .delay-1 {
-      animation: staggerIn 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) 0.3s forwards;
-    }
-
-    .delay-2 {
-      animation: staggerIn 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) 0.4s forwards;
-    }
-
-    .delay-3 {
-      animation: staggerIn 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) 0.5s forwards;
-    }
-
-    .delay-4 {
-      animation: staggerIn 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) 0.6s forwards;
-    }
-
-    .delay-5 {
-      animation: staggerIn 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) 0.7s forwards;
-    }
-
-    /* Responsive adjustments */
-    @media (max-width: 480px) {
-      .profile-card {
-        padding: 35px 20px;
-      }
-
-      .name {
-        font-size: 1.8rem;
-      }
-
-      .social-btn {
-        width: 50px;
-        height: 50px;
-        font-size: 1.2rem;
-      }
-    }
-  </style>
+        .skill-fill {
+            height: 100%;
+            border-radius: 999px;
+            transition: width 1s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+    </style>
 </head>
 
-<body>
+<body class="min-h-screen flex items-center justify-center p-4 sm:p-6 lg:p-8 relative">
 
-  <div class="profile-card">
+    <!-- ========================================================================== -->
+    <!-- 🖼️ 1. HÌNH NỀN VÀ LỚP PHỦ MỜ (BACKGROUND & FROSTED OVERLAY)               -->
+    <!-- Đặt file 'lv_0.gif' cùng cấp thư mục với file 'index.html'                 -->
+    <!-- ========================================================================== -->
+    <div class="fixed inset-0 -z-20 bg-cover bg-center bg-no-repeat" style="background-image: url('lv_0.gif');"></div>
+    <div class="fixed inset-0 -z-10 bg-slate-950/75 backdrop-blur-md"></div>
 
-    <!-- 1. AVATAR -->
-    <!-- CHÚ Ý: Mở file này bằng Notepad/VSCode, tìm thẻ img và thay bằng link ảnh thật của bạn. -->
-    <div class="avatar-wrapper">
-      <img src="https://api.dicebear.com/7.x/bottts/svg?seed=HVK9" alt="Avatar HVK" class="avatar">
-    </div>
+    <!-- ========================================================================== -->
+    <!-- 🎴 2. THẺ BIO CHÍNH (COLOROS 16/17 AQUAMORPHIC PROFILE CARD)               -->
+    <!-- ========================================================================== -->
+    <main class="w-full max-w-lg coloros-card p-6 sm:p-8 flex flex-col gap-6 relative z-10 my-4">
 
-    <!-- 2. THÔNG TIN CÁ NHÂN -->
-    <h1 class="name">H-V-K-9</h1>
-    <p class="bio">Gamer & Developer<br>Welcome to my personal space</p>
+        <!-- KHỐI THÔNG TIN CÁ NHÂN -->
+        <header class="flex flex-col items-center text-center">
+            
+            <!-- AVATAR (Chuẩn khung Squircle ColorOS với ảnh logo5.png) -->
+            <div class="relative mb-5">
+                <!-- Đặt file 'logo5.png' cùng cấp thư mục với file 'index.html' -->
+                <div class="w-28 h-28 sm:w-32 sm:h-32 coloros-avatar-frame overflow-hidden bg-slate-900">
+                    <img src="logo5.png" alt="Avatar HVK" class="w-full h-full object-cover" onerror="this.src='https://media.giphy.com/media/3o7aCSPqXE5C6T8tBC/giphy.gif'">
+                </div>
+                <!-- Chấm xanh trạng thái trực tuyến -->
+                <div class="absolute bottom-1 right-1 w-5 h-5 rounded-full bg-emerald-400 border-2 border-slate-950 shadow-[0_0_10px_#34d399]" title="Online"></div>
+            </div>
 
-    <!-- 3. MẠNG XÃ HỘI (Responsive Grid & Animation) -->
-    <!-- CHÚ Ý: Đổi link href="#" bằng link thực tế của bạn -->
-    <div class="social-grid">
-      <!-- Facebook -->
-      <a href="https://www.facebook.com/nguyen.quang.bao.1710" target="_blank" class="social-btn facebook delay-1"
-        title="Facebook">
-        <i class="fab fa-facebook-f"></i>
-      </a>
-      <!-- Discord -->
-      <a href="https://discord.gg/fejFKJv7" target="_blank" class="social-btn discord delay-2" title="Discord">
-        <i class="fab fa-discord"></i>
-      </a>
-      <!-- Zalo -->
-      <a href="https://zaloapp.com/qr/p/12x7zaah2dxbu?src=qr" target="_blank" class="social-btn zalo delay-3"
-        title="Zalo">
-        <i class="fas fa-comment-dots"></i>
-      </a>
-      <!-- Roblox -->
-      <a href="https://www.roblox.com/users/2791712461/profile" target="_blank" class="social-btn roblox delay-4"
-        title="Roblox">
-        <i class="fab fa-roblox"></i>
-      </a>
-      <!-- Riot Games (Blank for now) -->
-      <a href="#" target="_blank" class="social-btn riot delay-5" title="Riot Games">
-        <i class="fas fa-gamepad"></i>
-      </a>
-    </div>
+            <!-- TÊN HIỂN THỊ (HVK) + HUY HIỆU XÁC MINH -->
+            <div class="flex items-center justify-center gap-2 mb-1">
+                <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-white">HVK</h1>
+                <span class="text-teal-400 text-xl" title="Đã xác minh">
+                    <i class="ri-verified-badge-fill"></i>
+                </span>
+            </div>
 
-    <!-- 4. FOOTER -->
-    <div class="footer">
-      ✦ Kết nối cùng nhau ✦
-    </div>
+            <!-- USERNAME (@Bảo) -->
+            <div class="text-sm font-semibold text-teal-300 font-mono mb-3">
+                @Bảo
+            </div>
 
-  </div>
+            <!-- TIỂU SỬ (BIO CHÍNH XÁC 100%) -->
+            <p class="text-sm sm:text-base text-slate-200 font-medium leading-relaxed max-w-md px-2">
+                "làm nhạc và phối giống, đó gọi là lối sống."
+            </p>
+        </header>
+
+        <!-- ====================================================================== -->
+        <!-- 💻 3. KHỐI KỸ NĂNG (SKILLS: CHỈ HIỂN THỊ ĐÚNG HTML VÀ PYTHON)              -->
+        <!-- ====================================================================== -->
+        <section class="flex flex-col gap-3">
+            <div class="flex items-center justify-between text-xs font-bold text-slate-300 uppercase tracking-wider px-1">
+                <span class="flex items-center gap-1.5">
+                    <i class="ri-code-s-slash-fill text-teal-400"></i> Kỹ Năng
+                </span>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <!-- Kỹ năng 1: HTML -->
+                <div class="p-3.5 rounded-2xl bg-white/5 border border-white/10 hover:border-teal-400/30 transition-colors">
+                    <div class="flex items-center justify-between mb-2">
+                        <div class="flex items-center gap-2">
+                            <i class="ri-html5-fill text-xl text-orange-400"></i>
+                            <span class="text-sm font-bold text-white">HTML</span>
+                        </div>
+                        <span class="text-xs font-mono font-bold text-orange-400">95%</span>
+                    </div>
+                    <div class="skill-track">
+                        <div class="skill-fill bg-gradient-to-r from-orange-500 to-amber-400 w-[95%] shadow-[0_0_8px_rgba(251,146,60,0.6)]"></div>
+                    </div>
+                </div>
+
+                <!-- Kỹ năng 2: Python -->
+                <div class="p-3.5 rounded-2xl bg-white/5 border border-white/10 hover:border-teal-400/30 transition-colors">
+                    <div class="flex items-center justify-between mb-2">
+                        <div class="flex items-center gap-2">
+                            <i class="ri-file-code-fill text-xl text-blue-400"></i>
+                            <span class="text-sm font-bold text-white">Python</span>
+                        </div>
+                        <span class="text-xs font-mono font-bold text-blue-400">90%</span>
+                    </div>
+                    <div class="skill-track">
+                        <div class="skill-fill bg-gradient-to-r from-blue-500 to-cyan-400 w-[90%] shadow-[0_0_8px_rgba(56,189,248,0.6)]"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====================================================================== -->
+        <!-- 🌐 4. MẠNG XÃ HỘI (SOCIAL LINKS: NÚT BẤM TO RÕ RÀNG)                      -->
+        <!-- ====================================================================== -->
+        <section class="flex flex-col gap-3">
+            <div class="flex items-center text-xs font-bold text-slate-300 uppercase tracking-wider px-1">
+                <span class="flex items-center gap-1.5">
+                    <i class="ri-links-fill text-teal-400"></i> Mạng Xã Hội
+                </span>
+            </div>
+
+            <div class="grid grid-cols-2 gap-3">
+                <!-- YouTube -->
+                <a href="https://www.youtube.com/@HVK-9" target="_blank" rel="noopener noreferrer" class="coloros-btn p-3.5 flex items-center gap-3 group">
+                    <div class="w-10 h-10 rounded-xl bg-red-500/10 border border-red-500/20 flex items-center justify-center text-red-500 text-xl group-hover:scale-110 transition-transform flex-shrink-0">
+                        <i class="ri-youtube-fill"></i>
+                    </div>
+                    <div class="overflow-hidden text-left">
+                        <div class="text-xs font-bold text-white group-hover:text-red-400 transition-colors">YouTube</div>
+                        <div class="text-[11px] text-slate-400 truncate">@HVK-9</div>
+                    </div>
+                </a>
+
+                <!-- Facebook -->
+                <a href="https://www.facebook.com/nguyen.quang.bao.1710" target="_blank" rel="noopener noreferrer" class="coloros-btn p-3.5 flex items-center gap-3 group">
+                    <div class="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 text-xl group-hover:scale-110 transition-transform flex-shrink-0">
+                        <i class="ri-facebook-circle-fill"></i>
+                    </div>
+                    <div class="overflow-hidden text-left">
+                        <div class="text-xs font-bold text-white group-hover:text-blue-400 transition-colors">Facebook</div>
+                        <div class="text-[11px] text-slate-400 truncate">nguyen.quang.bao</div>
+                    </div>
+                </a>
+
+                <!-- Discord (Cá nhân) -->
+                <a href="https://discord.gg/FwSstSSy" target="_blank" rel="noopener noreferrer" class="coloros-btn p-3.5 flex items-center gap-3 group">
+                    <div class="w-10 h-10 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400 text-xl group-hover:scale-110 transition-transform flex-shrink-0">
+                        <i class="ri-discord-fill"></i>
+                    </div>
+                    <div class="overflow-hidden text-left">
+                        <div class="text-xs font-bold text-white group-hover:text-indigo-400 transition-colors">Discord</div>
+                        <div class="text-[11px] text-slate-400 truncate">Cá nhân</div>
+                    </div>
+                </a>
+
+                <!-- GitHub -->
+                <a href="https://github.com/HVK9" target="_blank" rel="noopener noreferrer" class="coloros-btn p-3.5 flex items-center gap-3 group">
+                    <div class="w-10 h-10 rounded-xl bg-slate-500/10 border border-slate-500/20 flex items-center justify-center text-slate-200 text-xl group-hover:scale-110 transition-transform flex-shrink-0">
+                        <i class="ri-github-fill"></i>
+                    </div>
+                    <div class="overflow-hidden text-left">
+                        <div class="text-xs font-bold text-white group-hover:text-teal-300 transition-colors">GitHub</div>
+                        <div class="text-[11px] text-slate-400 truncate">@HVK9</div>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- ====================================================================== -->
+        <!-- 💬 5. DISCORD SERVER WIDGET                                              -->
+        <!-- ====================================================================== -->
+        <section class="p-4 rounded-2xl bg-indigo-950/30 border border-indigo-500/20 flex flex-col sm:flex-row items-center justify-between gap-3">
+            <div class="flex items-center gap-3 w-full sm:w-auto">
+                <div class="w-11 h-11 rounded-xl bg-indigo-600 flex items-center justify-center text-white text-xl font-bold shadow-md shadow-indigo-600/30 flex-shrink-0">
+                    <i class="ri-discord-fill"></i>
+                </div>
+                <div class="text-left">
+                    <div class="text-xs font-bold text-white">Discord Server</div>
+                    <div class="text-[11px] text-slate-400 flex items-center gap-1.5 mt-0.5">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                        <span>Tham gia server cộng đồng</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Nút tham gia server -->
+            <a href="https://discord.gg/Q2HBwddZG" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs flex items-center justify-center gap-1.5 shadow-lg shadow-indigo-600/30 hover:scale-[1.02] active:scale-[0.98] transition-all flex-shrink-0">
+                <i class="ri-user-add-line"></i>
+                <span>Tham Gia Server</span>
+            </a>
+        </section>
+
+    </main>
 
 </body>
 
