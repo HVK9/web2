@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const PLAYLIST = [
         {
             title: "Cho Bản Thân",
-            artist: "Hà Bin",
+            artist: "Habin",
             src: "music/cho-ban-than-nay.mp3",
             bpm: 108,
             aura: {
@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             title: "Hải Sao",
-            artist: "HVK",
+            artist: "pixel neko và thắng",
             src: "music/hai-sao.mp3",
             bpm: 124,
             aura: {
@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             title: "Người Em Cố Đô 2",
-            artist: "HVK",
+            artist: "Xuân Đỉnh K.Y và Rum",
             src: "music/nguoi-em-co-do-2.mp3",
             bpm: 116,
             aura: {
