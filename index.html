@@ -3,295 +3,548 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>HVK • Bio Profile</title>
-    <meta name="description" content="Trang cá nhân HVK - ColorOS Aquamorphic Design">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1.0, user-scalable=no">
+    <title>HVK • Bio Profile (3D Spatial Edition)</title>
+    <meta name="description" content="Trang cá nhân chính thức của HVK - Apple VisionOS Spatial 3D Split-View UI">
     <link rel="icon" href="logo5.png" type="image/png">
 
-    <!-- Google Fonts: Plus Jakarta Sans (Font chữ hiện đại, rõ nét chuẩn ColorOS) -->
+    <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <!-- Tailwind CSS (via CDN) -->
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- Remix Icon (Bộ Icon nét đậm, sắc nét chuẩn ColorOS) -->
+    <!-- Remix Icon -->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet">
 
-    <!-- Custom CSS: ColorOS 16/17 Aquamorphic Design (Tối ưu hóa hiệu suất tối đa) -->
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html,
-        body {
-            min-height: 100%;
-            font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-            color: #f8fafc;
-            overflow-x: hidden;
-            scroll-behavior: smooth;
-        }
-
-        /* Cho phép bôi đen văn bản mượt mà, màu sắc chuẩn ColorOS Aqua */
-        ::selection {
-            background-color: #00d2c4;
-            color: #000000;
-        }
-
-        /* Thanh cuộn mảnh, mượt mà */
-        ::-webkit-scrollbar {
-            width: 6px;
-        }
-        ::-webkit-scrollbar-track {
-            background: transparent;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 999px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: rgba(0, 210, 196, 0.5);
-        }
-
-        /* Thẻ Glassmorphism chuẩn ColorOS 16/17 */
-        .coloros-card {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.10) 0%, rgba(255, 255, 255, 0.04) 100%);
-            backdrop-filter: blur(24px) saturate(180%);
-            -webkit-backdrop-filter: blur(24px) saturate(180%);
-            border: 1px solid rgba(255, 255, 255, 0.16);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), inset 0 1px 1px rgba(255, 255, 255, 0.25);
-            border-radius: 28px;
-            transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
-        }
-
-        .coloros-card:hover {
-            border-color: rgba(0, 210, 196, 0.35);
-        }
-
-        /* Nút bấm xúc giác ColorOS */
-        .coloros-btn {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.10), rgba(255, 255, 255, 0.04));
-            border: 1px solid rgba(255, 255, 255, 0.14);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border-radius: 20px;
-            transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        .coloros-btn:hover {
-            transform: translateY(-2px) scale(1.02);
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.08));
-            border-color: rgba(0, 210, 196, 0.45);
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
-        }
-
-        .coloros-btn:active {
-            transform: scale(0.98);
-        }
-
-        /* Khung Avatar bo góc Squircle phát sáng nhẹ */
-        .coloros-avatar-frame {
-            border-radius: 28px;
-            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.2), 0 0 25px rgba(0, 210, 196, 0.35), 0 15px 35px rgba(0, 0, 0, 0.5);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .coloros-avatar-frame:hover {
-            transform: scale(1.03);
-            box-shadow: 0 0 0 3px rgba(0, 210, 196, 0.5), 0 0 35px rgba(0, 210, 196, 0.5), 0 20px 40px rgba(0, 0, 0, 0.6);
-        }
-
-        /* Thanh tiến trình kỹ năng */
-        .skill-track {
-            height: 9px;
-            background: rgba(255, 255, 255, 0.08);
-            border-radius: 999px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .skill-fill {
-            height: 100%;
-            border-radius: 999px;
-            transition: width 1s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-    </style>
+    <!-- Custom CSS: 3D Spatial Split-View & Apple VisionOS Glass -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body class="min-h-screen flex items-center justify-center p-4 sm:p-6 lg:p-8 relative">
+<body class="min-h-screen h-screen w-screen overflow-hidden relative select-none bg-black text-slate-100 flex items-center justify-center">
 
-    <!-- ========================================================================== -->
-    <!-- 🖼️ 1. HÌNH NỀN VÀ LỚP PHỦ MỜ (BACKGROUND & FROSTED OVERLAY)               -->
-    <!-- Đặt file 'lv_0.gif' cùng cấp thư mục với file 'index.html'                 -->
-    <!-- ========================================================================== -->
-    <div class="fixed inset-0 -z-20 bg-cover bg-center bg-no-repeat" style="background-image: url('lv_0.gif');"></div>
-    <div class="fixed inset-0 -z-10 bg-slate-950/75 backdrop-blur-md"></div>
+    <!-- ====================================================================== -->
+    <!-- 1. NỀN ẢNH ĐỘNG LV_0.GIF + HẠT BỤI KHÔNG GIAN 3D CANVAS TÍM-XANH      -->
+    <!-- ====================================================================== -->
+    <div class="bg-wrapper" aria-hidden="true">
+        <img id="bgMedia" src="lv_0.gif" alt="Background Animation" class="bg-media">
+        <div class="bg-overlay"></div>
+        <canvas id="bg-particles" class="bg-particles"></canvas>
+    </div>
 
-    <!-- ========================================================================== -->
-    <!-- 🎴 2. THẺ BIO CHÍNH (COLOROS 16/17 AQUAMORPHIC PROFILE CARD)               -->
-    <!-- ========================================================================== -->
-    <main class="w-full max-w-lg coloros-card p-6 sm:p-8 flex flex-col gap-6 relative z-10 my-4">
+    <!-- ====================================================================== -->
+    <!-- 2. CON TRỎ TỪ TÍNH PHÁT SÁNG (MAGNETIC GLOW CURSOR - CHỈ HIỆN TRÊN PC) -->
+    <!-- ====================================================================== -->
+    <div id="magneticCursor" class="magnetic-cursor" aria-hidden="true">
+        <div class="cursor-ring"></div>
+        <div class="cursor-dot"></div>
+    </div>
 
-        <!-- KHỐI THÔNG TIN CÁ NHÂN -->
-        <header class="flex flex-col items-center text-center">
-            
-            <!-- AVATAR (Chuẩn khung Squircle ColorOS với ảnh logo5.png) -->
-            <div class="relative mb-5">
-                <!-- Đặt file 'logo5.png' cùng cấp thư mục với file 'index.html' -->
-                <div class="w-28 h-28 sm:w-32 sm:h-32 coloros-avatar-frame overflow-hidden bg-slate-900">
-                    <img src="logo5.png" alt="Avatar HVK" class="w-full h-full object-cover" onerror="this.src='https://media.giphy.com/media/3o7aCSPqXE5C6T8tBC/giphy.gif'">
+    <!-- ====================================================================== -->
+    <!-- 3. KHÔNG GIAN 3D SPATIAL STAGE (APPLE VISION SPLIT-VIEW PERSPECTIVE)   -->
+    <!-- ====================================================================== -->
+    <div class="spatial-viewport">
+        <!-- NỀN MỜ BACKDROP (BẤM RA NGOÀI ĐỂ ĐÓNG THẺ CHI TIẾT) -->
+        <div id="spatialBackdrop" class="spatial-backdrop" aria-hidden="true"></div>
+
+        <div id="spatialStage" class="spatial-stage">
+
+            <!-- ------------------------------------------------------------------ -->
+            <!-- 🎴 THẺ BIO CHÍNH (MAIN BIO CARD)                                    -->
+            <!-- ------------------------------------------------------------------ -->
+            <main id="mainCard" class="main-card main-bio-card editorial-card is-pre-enter p-3.5 flex flex-col gap-2 shadow-2xl">
+                <!-- Viền kính tán sắc ánh sáng động theo chuột -->
+                <div class="glass-border-glow" aria-hidden="true"></div>
+                <!-- Lớp hào quang nhịp nhạc chạy 100% trên GPU opacity (không gây repaint) -->
+                <div id="cardBeatGlow" class="card-beat-glow" aria-hidden="true"></div>
+
+                <!-- 🕒 0. PILL ĐỒNG HỒ THỰC (GMT+7) & TRẠNG THÁI HOẠT ĐỘNG -->
+                <div class="stagger-el flex items-center justify-center" style="--stagger: 0;">
+                    <div class="live-status-pill inline-flex items-center gap-2 px-2.5 py-1 rounded-full text-[10px] font-mono">
+                        <span class="flex items-center gap-1.5 text-emerald-300 font-semibold tracking-wide">
+                            <span class="live-status-dot"></span>
+                            ONLINE
+                        </span>
+                        <span class="w-px h-2.5 bg-white/15" aria-hidden="true"></span>
+                        <span class="flex items-center gap-1 text-violet-200/90">
+                            <i class="ri-time-line text-[10px] text-violet-400"></i>
+                            <span id="liveClockGmt7" class="tabular-nums font-semibold">--:--:--</span>
+                            <span class="text-[8px] text-zinc-400 tracking-wider">GMT+7</span>
+                        </span>
+                    </div>
                 </div>
-                <!-- Chấm xanh trạng thái trực tuyến -->
-                <div class="absolute bottom-1 right-1 w-5 h-5 rounded-full bg-emerald-400 border-2 border-slate-950 shadow-[0_0_10px_#34d399]" title="Online"></div>
-            </div>
 
-            <!-- TÊN HIỂN THỊ (HVK) + HUY HIỆU XÁC MINH -->
-            <div class="flex items-center justify-center gap-2 mb-1">
-                <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-white">HVK</h1>
-                <span class="text-teal-400 text-xl" title="Đã xác minh">
-                    <i class="ri-verified-badge-fill"></i>
-                </span>
-            </div>
+                <!-- 👤 A. KHỐI THÔNG TIN CÁ NHÂN (HERO PROFILE) -->
+                <header class="stagger-el flex flex-col items-center text-center pt-0.5" style="--stagger: 1;">
 
-            <!-- USERNAME (@Bảo) -->
-            <div class="text-sm font-semibold text-teal-300 font-mono mb-3">
-                @Bảo
-            </div>
-
-            <!-- TIỂU SỬ (BIO CHÍNH XÁC 100%) -->
-            <p class="text-sm sm:text-base text-slate-200 font-medium leading-relaxed max-w-md px-2">
-                "làm nhạc và phối giống, đó gọi là lối sống."
-            </p>
-        </header>
-
-        <!-- ====================================================================== -->
-        <!-- 💻 3. KHỐI KỸ NĂNG (SKILLS: CHỈ HIỂN THỊ ĐÚNG HTML VÀ PYTHON)              -->
-        <!-- ====================================================================== -->
-        <section class="flex flex-col gap-3">
-            <div class="flex items-center justify-between text-xs font-bold text-slate-300 uppercase tracking-wider px-1">
-                <span class="flex items-center gap-1.5">
-                    <i class="ri-code-s-slash-fill text-teal-400"></i> Kỹ Năng
-                </span>
-            </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <!-- Kỹ năng 1: HTML -->
-                <div class="p-3.5 rounded-2xl bg-white/5 border border-white/10 hover:border-teal-400/30 transition-colors">
-                    <div class="flex items-center justify-between mb-2">
-                        <div class="flex items-center gap-2">
-                            <i class="ri-html5-fill text-xl text-orange-400"></i>
-                            <span class="text-sm font-bold text-white">HTML</span>
+                    <!-- AVATAR HÌNH TRÒN HOÀN CHỈNH (logo5.png với bo tròn 50% & dot ôm sát) -->
+                    <div class="relative mb-1.5 group cursor-pointer">
+                        <div class="w-14 h-14 sm:w-[58px] sm:h-[58px] rounded-full avatar-circle overflow-hidden bg-zinc-900 mx-auto select-none">
+                            <img src="logo5.png" alt="Avatar HVK" class="w-full h-full object-cover">
                         </div>
-                        <span class="text-xs font-mono font-bold text-orange-400">95%</span>
-                    </div>
-                    <div class="skill-track">
-                        <div class="skill-fill bg-gradient-to-r from-orange-500 to-amber-400 w-[95%] shadow-[0_0_8px_rgba(251,146,60,0.6)]"></div>
-                    </div>
-                </div>
-
-                <!-- Kỹ năng 2: Python -->
-                <div class="p-3.5 rounded-2xl bg-white/5 border border-white/10 hover:border-teal-400/30 transition-colors">
-                    <div class="flex items-center justify-between mb-2">
-                        <div class="flex items-center gap-2">
-                            <i class="ri-file-code-fill text-xl text-blue-400"></i>
-                            <span class="text-sm font-bold text-white">Python</span>
+                        <!-- Chấm trạng thái Online ôm sát viền tròn 45 độ -->
+                        <div class="avatar-status-badge" title="Đang hoạt động">
+                            <div class="status-indicator"></div>
                         </div>
-                        <span class="text-xs font-mono font-bold text-blue-400">90%</span>
                     </div>
-                    <div class="skill-track">
-                        <div class="skill-fill bg-gradient-to-r from-blue-500 to-cyan-400 w-[90%] shadow-[0_0_8px_rgba(56,189,248,0.6)]"></div>
+
+                    <!-- TÊN HIỂN THỊ (HVK) + HUY HIỆU XÁC MINH -->
+                    <div class="flex items-center justify-center gap-1 mb-0.5">
+                        <h1 class="text-base sm:text-lg font-extrabold tracking-tight text-white leading-tight">HVK</h1>
+                        <span class="text-violet-300 text-base leading-none drop-shadow-[0_0_8px_rgba(168,85,247,0.65)]" title="Đã xác minh">
+                            <i class="ri-verified-badge-fill"></i>
+                        </span>
                     </div>
+
+                    <!-- USERNAME (@Bảo) VỚI PHẢN HỒI CHẠM ĐÀN HỒI -->
+                    <button id="usernameChip" type="button" class="ios-tap magnetic-target inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-white/5 border border-white/10 text-[10px] font-mono text-zinc-300 mb-1 hover:bg-violet-500/15 hover:border-violet-400/35 cursor-pointer" title="Bấm để sao chép username">
+                        <span class="text-violet-300/80">@</span><span>Bảo</span>
+                        <i class="ri-file-copy-line text-[9px] text-zinc-400 ml-0.5"></i>
+                    </button>
+
+                    <!-- TIỂU SỬ (BIO CHÍNH XÁC 100%) -->
+                    <p class="text-xs text-zinc-300 font-medium leading-relaxed max-w-xs italic">
+                        "làm nhạc và phối giống, đó gọi là lối sống."
+                    </p>
+                </header>
+
+                <!-- 💻 B. KHỐI KỸ NĂNG (TÁCH BIỆT RÕ RÀNG VỚI TIÊU ĐỀ RIÊNG) -->
+                <section class="stagger-el flex flex-col gap-1.5" style="--stagger: 2;">
+                    <div class="flex items-center justify-between text-[10px] font-mono uppercase tracking-wider text-zinc-300 px-0.5">
+                        <span class="flex items-center gap-1.5 text-zinc-200 font-semibold tracking-wide">
+                            <i class="ri-code-s-slash-line text-violet-400 text-xs"></i> KỸ NĂNG
+                        </span>
+                        <span class="text-violet-200/80 font-medium text-[9px] drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">CORE STACK</span>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-1.5">
+                        <!-- HTML -->
+                        <div class="capability-card ios-tap p-2 flex items-center justify-between cursor-default">
+                            <div class="flex items-center gap-1.5 min-w-0">
+                                <i class="ri-html5-fill text-sm text-orange-400 flex-shrink-0"></i>
+                                <span class="text-xs font-semibold text-white tracking-tight truncate">HTML</span>
+                            </div>
+                            <span class="capability-badge">CORE</span>
+                        </div>
+
+                        <!-- Python -->
+                        <div class="capability-card ios-tap p-2 flex items-center justify-between cursor-default">
+                            <div class="flex items-center gap-1.5 min-w-0">
+                                <i class="ri-file-code-fill text-sm text-blue-400 flex-shrink-0"></i>
+                                <span class="text-xs font-semibold text-white tracking-tight truncate">Python</span>
+                            </div>
+                            <span class="capability-badge">CORE</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 🌐 C. KHỐI LIÊN KẾT (CÁC NÚT MỞ THẺ CHI TIẾT 3D SPATIAL) -->
+                <section class="stagger-el flex flex-col gap-1.5 pt-1.5 border-t border-white/5" style="--stagger: 3;">
+                    <div class="flex items-center justify-between text-[10px] font-mono uppercase tracking-wider text-zinc-300 px-0.5">
+                        <span class="flex items-center gap-1.5 text-zinc-200 font-semibold tracking-wide">
+                            <i class="ri-links-line text-violet-400 text-xs"></i> LIÊN KẾT
+                        </span>
+                        <span class="text-violet-200/80 font-medium text-[9px] drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">CHỌN ĐỂ MỞ 3D</span>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-1.5">
+                        <!-- YouTube Trigger -->
+                        <button type="button" class="spatial-trigger-btn magnetic-target ios-tap p-2 flex items-center gap-2 group text-left cursor-pointer" data-target="youtube" title="Xem chi tiết kênh YouTube">
+                            <div class="w-7 h-7 rounded-lg bg-red-500/10 border border-red-500/20 flex items-center justify-center text-red-400 text-sm group-hover:scale-105 transition-transform flex-shrink-0">
+                                <i class="ri-youtube-fill"></i>
+                            </div>
+                            <div class="overflow-hidden flex-1">
+                                <div class="text-[11px] font-bold text-white group-hover:text-red-400 transition-colors">YouTube</div>
+                                <div class="text-[9px] text-zinc-400 font-mono truncate">@HVK-9</div>
+                            </div>
+                            <i class="ri-arrow-right-s-line text-xs text-zinc-500 group-hover:text-white transition-colors"></i>
+                        </button>
+
+                        <!-- Facebook Trigger -->
+                        <button type="button" class="spatial-trigger-btn magnetic-target ios-tap p-2 flex items-center gap-2 group text-left cursor-pointer" data-target="facebook" title="Xem chi tiết Facebook Profile">
+                            <div class="w-7 h-7 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 text-sm group-hover:scale-105 transition-transform flex-shrink-0">
+                                <i class="ri-facebook-circle-fill"></i>
+                            </div>
+                            <div class="overflow-hidden flex-1">
+                                <div class="text-[11px] font-bold text-white group-hover:text-blue-400 transition-colors">Facebook</div>
+                                <div class="text-[9px] text-zinc-400 font-mono truncate">nguyen.quang.bao</div>
+                            </div>
+                            <i class="ri-arrow-right-s-line text-xs text-zinc-500 group-hover:text-white transition-colors"></i>
+                        </button>
+
+                        <!-- Discord Trigger -->
+                        <button type="button" class="spatial-trigger-btn magnetic-target ios-tap p-2 flex items-center gap-2 group text-left cursor-pointer" data-target="discord" title="Xem thông tin Discord & Server">
+                            <div class="w-7 h-7 rounded-lg bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400 text-sm group-hover:scale-105 transition-transform flex-shrink-0">
+                                <i class="ri-discord-fill"></i>
+                            </div>
+                            <div class="overflow-hidden flex-1">
+                                <div class="text-[11px] font-bold text-white group-hover:text-indigo-400 transition-colors">Discord</div>
+                                <div class="text-[9px] text-zinc-400 font-mono truncate">Cá nhân & Server</div>
+                            </div>
+                            <i class="ri-arrow-right-s-line text-xs text-zinc-500 group-hover:text-white transition-colors"></i>
+                        </button>
+
+                        <!-- GitHub Trigger -->
+                        <button type="button" class="spatial-trigger-btn magnetic-target ios-tap p-2 flex items-center gap-2 group text-left cursor-pointer" data-target="github" title="Xem dự án trên GitHub">
+                            <div class="w-7 h-7 rounded-lg bg-violet-500/10 border border-violet-500/20 flex items-center justify-center text-zinc-200 text-sm group-hover:scale-105 transition-transform flex-shrink-0">
+                                <i class="ri-github-fill"></i>
+                            </div>
+                            <div class="overflow-hidden flex-1">
+                                <div class="text-[11px] font-bold text-white group-hover:text-violet-300 transition-colors">GitHub</div>
+                                <div class="text-[9px] text-zinc-400 font-mono truncate">@HVK9</div>
+                            </div>
+                            <i class="ri-arrow-right-s-line text-xs text-zinc-500 group-hover:text-white transition-colors"></i>
+                        </button>
+                    </div>
+                </section>
+
+                <!-- 🎵 D. NÚT TRÌNH PHÁT NHẠC (MỞ THẺ CHI TIẾT 3D MUSIC PLAYER) -->
+                <button type="button" class="stagger-el music-tile-trigger spatial-trigger-btn magnetic-target ios-tap p-2 px-3 flex items-center justify-between gap-2.5 mt-0.5 text-left cursor-pointer" style="--stagger: 4;" data-target="music" title="Mở Trình phát nhạc đĩa than 3D">
+                    <div class="flex items-center gap-2.5 min-w-0">
+                        <div class="w-7 h-7 rounded-lg bg-violet-500/15 border border-violet-400/25 flex items-center justify-center flex-shrink-0">
+                            <div class="soundwave" id="quickSoundwave">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </div>
+                        <div class="overflow-hidden">
+                            <div class="flex items-center gap-1.5">
+                                <span id="quickTrackTitle" class="text-[11px] font-bold text-white truncate max-w-[155px]">Đang tải...</span>
+                                <span id="quickPlayStatus" class="play-status-pill text-[8px] font-mono px-1.5 py-0.5 rounded bg-violet-500/20 text-violet-200 font-semibold">PAUSED</span>
+                            </div>
+                            <div id="quickTrackArtist" class="text-[9px] text-zinc-400 truncate leading-tight">HVK Playlist • Nhấn để mở đĩa than</div>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-1 text-xs text-violet-300/80 group-hover:text-white flex-shrink-0">
+                        <span class="text-[9px] font-mono tracking-tight">3D PLAYER</span>
+                        <i id="quickDiscIcon" class="ri-disc-line text-sm text-violet-300 animate-spin-slow"></i>
+                    </div>
+                </button>
+
+            </main>
+
+            <!-- ------------------------------------------------------------------ -->
+            <!-- 📦 THẺ CHI TIẾT 3D POP-OUT (DETAIL PANEL)                           -->
+            <!-- ------------------------------------------------------------------ -->
+            <aside id="detailPanel" class="detail-panel editorial-card p-3.5 flex flex-col shadow-2xl">
+                <!-- Viền kính tán sắc ánh sáng động theo chuột -->
+                <div class="glass-border-glow" aria-hidden="true"></div>
+
+                <!-- Nút Đóng "X" chuẩn Apple Glass -->
+                <div class="flex items-center justify-between pb-2 mb-2 border-b border-white/10 relative z-10">
+                    <div class="flex items-center gap-1.5">
+                        <span id="panelCategoryIcon" class="text-violet-400 text-sm"></span>
+                        <span id="panelCategoryLabel" class="text-[10px] font-mono uppercase tracking-wider text-zinc-300 font-bold">THÔNG TIN CHI TIẾT</span>
+                    </div>
+                    <button id="closePanelBtn" type="button" class="close-panel-btn magnetic-target ios-tap" title="Đóng thẻ (Esc)" aria-label="Close detail panel">
+                        <i class="ri-close-line text-base"></i>
+                    </button>
                 </div>
-            </div>
-        </section>
 
-        <!-- ====================================================================== -->
-        <!-- 🌐 4. MẠNG XÃ HỘI (SOCIAL LINKS: NÚT BẤM TO RÕ RÀNG)                      -->
-        <!-- ====================================================================== -->
-        <section class="flex flex-col gap-3">
-            <div class="flex items-center text-xs font-bold text-slate-300 uppercase tracking-wider px-1">
-                <span class="flex items-center gap-1.5">
-                    <i class="ri-links-fill text-teal-400"></i> Mạng Xã Hội
-                </span>
-            </div>
+                <!-- KHU VỰC CHỨA NỘI DUNG NĂNG ĐỘNG (DYNAMIC VIEWS) -->
+                <div class="detail-content-wrapper flex-1 overflow-y-auto pr-0.5 relative z-10">
 
-            <div class="grid grid-cols-2 gap-3">
-                <!-- YouTube -->
-                <a href="https://www.youtube.com/@HVK-9" target="_blank" rel="noopener noreferrer" class="coloros-btn p-3.5 flex items-center gap-3 group">
-                    <div class="w-10 h-10 rounded-xl bg-red-500/10 border border-red-500/20 flex items-center justify-center text-red-500 text-xl group-hover:scale-110 transition-transform flex-shrink-0">
-                        <i class="ri-youtube-fill"></i>
-                    </div>
-                    <div class="overflow-hidden text-left">
-                        <div class="text-xs font-bold text-white group-hover:text-red-400 transition-colors">YouTube</div>
-                        <div class="text-[11px] text-slate-400 truncate">@HVK-9</div>
-                    </div>
-                </a>
+                    <!-- VIEW 1: YOUTUBE -->
+                    <div id="view-youtube" class="detail-view flex-col gap-3">
+                        <div class="relative rounded-xl overflow-hidden bg-gradient-to-br from-red-950/35 via-violet-950/30 to-zinc-900/90 border border-red-500/20 p-4 flex flex-col items-center text-center">
+                            <div class="w-14 h-14 rounded-full bg-red-600/20 border-2 border-red-500/40 flex items-center justify-center text-red-400 text-2xl mb-2 shadow-lg shadow-red-600/20">
+                                <i class="ri-youtube-fill"></i>
+                            </div>
+                            <h3 class="text-sm font-extrabold text-white">HVK</h3>
+                            <p class="text-[10px] font-mono text-red-400 mt-0.5">@HVK-9 • Kênh YouTube Chính Thức</p>
+                        </div>
 
-                <!-- Facebook -->
-                <a href="https://www.facebook.com/nguyen.quang.bao.1710" target="_blank" rel="noopener noreferrer" class="coloros-btn p-3.5 flex items-center gap-3 group">
-                    <div class="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 text-xl group-hover:scale-110 transition-transform flex-shrink-0">
-                        <i class="ri-facebook-circle-fill"></i>
+                        <!-- CTA Button -->
+                        <a href="https://www.youtube.com/@HVK-9" target="_blank" rel="noopener noreferrer" class="cta-primary-btn magnetic-target bg-red-600 hover:bg-red-500 text-white shadow-lg shadow-red-600/30 ios-tap">
+                            <i class="ri-youtube-fill text-base"></i>
+                            <span>Mở Kênh YouTube</span>
+                            <i class="ri-arrow-right-up-line ml-auto text-sm"></i>
+                        </a>
                     </div>
-                    <div class="overflow-hidden text-left">
-                        <div class="text-xs font-bold text-white group-hover:text-blue-400 transition-colors">Facebook</div>
-                        <div class="text-[11px] text-slate-400 truncate">nguyen.quang.bao</div>
-                    </div>
-                </a>
 
-                <!-- Discord (Cá nhân) -->
-                <a href="https://discord.gg/FwSstSSy" target="_blank" rel="noopener noreferrer" class="coloros-btn p-3.5 flex items-center gap-3 group">
-                    <div class="w-10 h-10 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400 text-xl group-hover:scale-110 transition-transform flex-shrink-0">
-                        <i class="ri-discord-fill"></i>
-                    </div>
-                    <div class="overflow-hidden text-left">
-                        <div class="text-xs font-bold text-white group-hover:text-indigo-400 transition-colors">Discord</div>
-                        <div class="text-[11px] text-slate-400 truncate">Cá nhân</div>
-                    </div>
-                </a>
+                    <!-- VIEW 2: FACEBOOK -->
+                    <div id="view-facebook" class="detail-view flex-col gap-3">
+                        <div class="relative rounded-xl overflow-hidden bg-gradient-to-br from-blue-950/40 via-indigo-950/35 to-zinc-900 border border-blue-500/20 p-3 flex flex-col items-center text-center">
+                            <div class="w-14 h-14 rounded-full overflow-hidden border-2 border-blue-500/40 mb-2 shadow-lg shadow-blue-600/20 bg-zinc-900">
+                                <img src="logo5.png" alt="Bảo Avatar" class="w-full h-full object-cover">
+                            </div>
+                            <h3 class="text-sm font-extrabold text-white">Nguyễn Quang Bảo</h3>
+                            <p class="text-[10px] font-mono text-blue-400 mt-0.5">fb.com/nguyen.quang.bao.1710</p>
+                            <p class="text-xs text-zinc-300 mt-2 leading-relaxed italic px-2">
+                                "làm nhạc và phối giống, đó gọi là lối sống."
+                            </p>
+                        </div>
 
-                <!-- GitHub -->
-                <a href="https://github.com/HVK9" target="_blank" rel="noopener noreferrer" class="coloros-btn p-3.5 flex items-center gap-3 group">
-                    <div class="w-10 h-10 rounded-xl bg-slate-500/10 border border-slate-500/20 flex items-center justify-center text-slate-200 text-xl group-hover:scale-110 transition-transform flex-shrink-0">
-                        <i class="ri-github-fill"></i>
-                    </div>
-                    <div class="overflow-hidden text-left">
-                        <div class="text-xs font-bold text-white group-hover:text-teal-300 transition-colors">GitHub</div>
-                        <div class="text-[11px] text-slate-400 truncate">@HVK9</div>
-                    </div>
-                </a>
-            </div>
-        </section>
+                        <!-- Highlights -->
+                        <div class="p-2.5 rounded-lg bg-white/5 border border-white/5 flex flex-col gap-1.5 text-xs">
+                            <div class="flex items-center gap-2 text-zinc-300">
+                                <i class="ri-user-smile-line text-blue-400"></i>
+                                <span>Biệt danh: <strong class="text-white">Bảo / HVK</strong></span>
+                            </div>
+                            <div class="flex items-center gap-2 text-zinc-300">
+                                <i class="ri-disc-line text-violet-400"></i>
+                                <span>Hoạt động: <strong class="text-white">Làm nhạc &amp; Đời sống</strong></span>
+                            </div>
+                        </div>
 
-        <!-- ====================================================================== -->
-        <!-- 💬 5. DISCORD SERVER WIDGET                                              -->
-        <!-- ====================================================================== -->
-        <section class="p-4 rounded-2xl bg-indigo-950/30 border border-indigo-500/20 flex flex-col sm:flex-row items-center justify-between gap-3">
-            <div class="flex items-center gap-3 w-full sm:w-auto">
-                <div class="w-11 h-11 rounded-xl bg-indigo-600 flex items-center justify-center text-white text-xl font-bold shadow-md shadow-indigo-600/30 flex-shrink-0">
-                    <i class="ri-discord-fill"></i>
+                        <!-- CTA Button -->
+                        <a href="https://www.facebook.com/nguyen.quang.bao.1710" target="_blank" rel="noopener noreferrer" class="cta-primary-btn magnetic-target bg-blue-600 hover:bg-blue-500 text-white shadow-lg shadow-blue-600/30 ios-tap">
+                            <i class="ri-facebook-circle-fill text-base"></i>
+                            <span>Mở Trang Facebook Cá Nhân</span>
+                            <i class="ri-arrow-right-up-line ml-auto text-sm"></i>
+                        </a>
+                    </div>
+
+                    <!-- VIEW 3: DISCORD -->
+                    <div id="view-discord" class="detail-view flex-col gap-2.5">
+                        <div class="rounded-xl overflow-hidden bg-gradient-to-br from-indigo-950/45 via-violet-950/35 to-zinc-900 border border-indigo-500/25 p-3">
+                            <div class="flex items-center gap-3">
+                                <div class="w-12 h-12 rounded-xl bg-[#5865F2] flex items-center justify-center text-white text-2xl font-bold shadow-md shadow-[#5865F2]/30 flex-shrink-0">
+                                    <i class="ri-discord-fill"></i>
+                                </div>
+                                <div class="text-left overflow-hidden">
+                                    <div class="text-xs font-bold text-white truncate">HVK Community Server</div>
+                                    <div class="text-[10px] text-zinc-400 flex items-center gap-1.5 mt-0.5">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                                        <span>Server trò chuyện &amp; làm nhạc</span>
+                                    </div>
+                                    <div class="text-[9px] font-mono text-indigo-300 mt-1">discord.gg/Q2HBwddZG</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Channel Mockup -->
+                        <div class="p-2.5 rounded-lg bg-white/5 border border-white/5 flex flex-col gap-1 text-[11px] text-zinc-300 font-mono">
+                            <div class="flex items-center gap-1.5 text-zinc-400"><i class="ri-hashtag text-indigo-400"></i> <span>phòng-làm-nhạc</span></div>
+                            <div class="flex items-center gap-1.5 text-zinc-400"><i class="ri-hashtag text-indigo-400"></i> <span>chém-gió-lối-sống</span></div>
+                            <div class="flex items-center gap-1.5 text-emerald-400"><i class="ri-volume-up-line"></i> <span>Voice Lounge (Online)</span></div>
+                        </div>
+
+                        <!-- CTA Buttons -->
+                        <div class="flex flex-col gap-1.5">
+                            <a href="https://discord.gg/Q2HBwddZG" target="_blank" rel="noopener noreferrer" class="cta-primary-btn magnetic-target bg-[#5865F2] hover:bg-[#4752c4] text-white shadow-lg shadow-[#5865F2]/30 ios-tap">
+                                <i class="ri-discord-fill text-base"></i>
+                                <span>Tham Gia Discord Server</span>
+                                <i class="ri-arrow-right-up-line ml-auto text-sm"></i>
+                            </a>
+                            <a href="https://discord.gg/FwSstSSy" target="_blank" rel="noopener noreferrer" class="cta-secondary-btn magnetic-target bg-white/5 hover:bg-white/10 text-zinc-200 border border-white/10 ios-tap">
+                                <i class="ri-user-add-line text-base"></i>
+                                <span>Kết Nối Discord Cá Nhân</span>
+                                <i class="ri-arrow-right-up-line ml-auto text-sm"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- VIEW 4: GITHUB -->
+                    <div id="view-github" class="detail-view flex-col gap-3">
+                        <div class="relative rounded-xl overflow-hidden bg-gradient-to-br from-violet-950/35 via-zinc-900/80 to-zinc-950 border border-violet-500/20 p-4 flex flex-col items-center text-center">
+                            <div class="w-14 h-14 rounded-full bg-white/10 border border-violet-400/25 flex items-center justify-center text-white text-2xl mb-2 shadow-lg shadow-violet-600/15">
+                                <i class="ri-github-fill"></i>
+                            </div>
+                            <h3 class="text-sm font-extrabold text-white">HVK9</h3>
+                            <p class="text-[10px] font-mono text-zinc-400 mt-0.5">github.com/HVK9</p>
+                            <div class="flex items-center gap-1.5 mt-2">
+                                <span class="px-2 py-0.5 rounded text-[9px] font-mono bg-blue-500/10 text-blue-400 border border-blue-500/20">Python</span>
+                                <span class="px-2 py-0.5 rounded text-[9px] font-mono bg-orange-500/10 text-orange-400 border border-orange-500/20">HTML5</span>
+                            </div>
+                        </div>
+
+                        <!-- CTA Button -->
+                        <a href="https://github.com/HVK9" target="_blank" rel="noopener noreferrer" class="cta-primary-btn magnetic-target bg-zinc-800/90 hover:bg-zinc-700 text-white border border-violet-400/25 shadow-lg ios-tap">
+                            <i class="ri-github-fill text-base"></i>
+                            <span>Truy Cập GitHub Profile</span>
+                            <i class="ri-arrow-right-up-line ml-auto text-sm"></i>
+                        </a>
+                    </div>
+
+                    <!-- VIEW 5: SPATIAL PRODUCER MUSIC PLAYER (ĐĨA THAN + TONEARM + HYBRID VISUALIZER) -->
+                    <div id="view-music" class="detail-view flex-col gap-2">
+
+                        <!-- Bàn Đĩa Than 3D + Cần Gạt Kim Đĩa (Turntable & Tonearm) -->
+                        <div class="turntable-wrapper flex items-center justify-center">
+                            <div class="turntable-stage relative">
+                                <!-- Đĩa than xoay -->
+                                <div class="vinyl-container">
+                                    <div class="vinyl-aura" aria-hidden="true"></div>
+                                    <div id="vinylDisc" class="vinyl-disc w-full h-full rounded-full relative flex items-center justify-center">
+                                        <div class="vinyl-groove"></div>
+                                        <div class="vinyl-rings"></div>
+                                        <!-- Nhãn trung tâm in Logo5 -->
+                                        <div class="vinyl-label w-11 h-11 rounded-full overflow-hidden border-2 border-zinc-950 shadow-inner flex items-center justify-center bg-zinc-900">
+                                            <img src="logo5.png" alt="HVK Label" class="w-full h-full object-cover">
+                                        </div>
+                                        <!-- Lỗ trục trung tâm -->
+                                        <div class="vinyl-spindle"></div>
+                                    </div>
+                                </div>
+
+                                <!-- Cần gạt kim đĩa (Tonearm) xoay tự động theo trạng thái phát nhạc -->
+                                <div id="tonearmAssembly" class="tonearm-assembly" aria-hidden="true">
+                                    <div class="tonearm-pivot-base">
+                                        <div class="tonearm-pivot-core"></div>
+                                    </div>
+                                    <div class="tonearm-arm-wrapper">
+                                        <svg class="tonearm-svg" viewBox="0 0 44 98" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <!-- Đối trọng phía sau trục -->
+                                            <rect x="17" y="1" width="10" height="8" rx="2.5" fill="url(#armMetal)" stroke="rgba(255,255,255,0.28)" stroke-width="0.8"/>
+                                            <!-- Thanh cần kim cong thanh mảnh -->
+                                            <path d="M22 9 L22 64 C22 72 19 77 14 83" stroke="url(#armTube)" stroke-width="3.2" stroke-linecap="round"/>
+                                            <!-- Highlight ánh kim -->
+                                            <path d="M21.2 12 L21.2 63 C21.2 70 18.5 75 14.5 80.5" stroke="rgba(255,255,255,0.55)" stroke-width="0.8" stroke-linecap="round"/>
+                                            <!-- Đầu kim (Headshell) -->
+                                            <g transform="translate(13, 82) rotate(28)">
+                                                <rect x="-4.5" y="-2" width="9" height="14" rx="2" fill="#18181b" stroke="rgba(255,255,255,0.35)" stroke-width="0.9"/>
+                                                <rect x="-2" y="10" width="4" height="3.5" rx="1" fill="#e4e4e7"/>
+                                                <circle class="tonearm-led" cx="0" cy="4.5" r="1.6" fill="currentColor"/>
+                                            </g>
+                                            <defs>
+                                                <linearGradient id="armMetal" x1="17" y1="1" x2="27" y2="9" gradientUnits="userSpaceOnUse">
+                                                    <stop stop-color="#e4e4e7"/>
+                                                    <stop offset="0.5" stop-color="#71717a"/>
+                                                    <stop offset="1" stop-color="#27272a"/>
+                                                </linearGradient>
+                                                <linearGradient id="armTube" x1="20" y1="9" x2="24" y2="83" gradientUnits="userSpaceOnUse">
+                                                    <stop stop-color="#f4f4f5"/>
+                                                    <stop offset="0.55" stop-color="#a1a1aa"/>
+                                                    <stop offset="1" stop-color="#52525b"/>
+                                                </linearGradient>
+                                            </defs>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Thông tin bài hát đang phát -->
+                        <div class="text-center">
+                            <h4 id="detailTrackTitle" class="text-xs sm:text-sm font-extrabold text-white truncate max-w-[280px] mx-auto">Đang tải...</h4>
+                            <p id="detailTrackArtist" class="text-[10px] text-zinc-400 truncate mt-0.5">HVK Playlist</p>
+                        </div>
+
+                        <!-- Sóng Âm Thông Minh (Hybrid Visualizer 16-Band Spectrum) -->
+                        <div id="hybridVisualizer" class="hybrid-visualizer" aria-hidden="true">
+                            <span class="viz-bar"></span>
+                            <span class="viz-bar"></span>
+                            <span class="viz-bar"></span>
+                            <span class="viz-bar"></span>
+                            <span class="viz-bar"></span>
+                            <span class="viz-bar"></span>
+                            <span class="viz-bar"></span>
+                            <span class="viz-bar"></span>
+                            <span class="viz-bar"></span>
+                            <span class="viz-bar"></span>
+                            <span class="viz-bar"></span>
+                            <span class="viz-bar"></span>
+                            <span class="viz-bar"></span>
+                            <span class="viz-bar"></span>
+                            <span class="viz-bar"></span>
+                            <span class="viz-bar"></span>
+                        </div>
+
+                        <!-- Thanh Tua Thời Gian (Progress Bar) & Phút:Giây Thực Tế -->
+                        <div class="seek-control-group flex flex-col gap-1 px-0.5">
+                            <input id="seekBar" type="range" min="0" max="100" value="0" step="0.1" class="producer-slider seek-slider" aria-label="Tua thời gian bài hát">
+                            <div class="flex items-center justify-between text-[9px] font-mono text-zinc-400 tabular-nums">
+                                <span id="currentTimeDisplay">0:00</span>
+                                <span id="durationDisplay">0:00</span>
+                            </div>
+                        </div>
+
+                        <!-- Nút Điều Khiển Playback & Thanh Trượt Âm Lượng Gọn Gàng -->
+                        <div class="flex items-center justify-between gap-2 px-0.5">
+                            <!-- Spacer cân đối bên trái -->
+                            <div class="w-[74px] flex items-center">
+                                <span id="visualizerModeBadge" class="text-[8px] font-mono uppercase tracking-wider px-1.5 py-0.5 rounded bg-white/5 border border-white/10 text-violet-300/80">SYNC</span>
+                            </div>
+
+                            <!-- Cụm Prev / Play / Next ở chính giữa -->
+                            <div class="flex items-center justify-center gap-2.5">
+                                <button id="detailPrevBtn" type="button" class="music-action-btn magnetic-target ios-tap" title="Bài trước" aria-label="Previous">
+                                    <i class="ri-skip-back-fill text-sm"></i>
+                                </button>
+                                <button id="detailPlayPauseBtn" type="button" class="music-play-btn magnetic-target ios-tap shadow-lg shadow-violet-500/25" title="Phát / Tạm dừng" aria-label="Play/Pause">
+                                    <i id="detailPlayPauseIcon" class="ri-play-fill text-lg"></i>
+                                </button>
+                                <button id="detailNextBtn" type="button" class="music-action-btn magnetic-target ios-tap" title="Bài kế tiếp" aria-label="Next">
+                                    <i class="ri-skip-forward-fill text-sm"></i>
+                                </button>
+                            </div>
+
+                            <!-- Cụm Chỉnh Âm Lượng bên phải -->
+                            <div class="w-[74px] flex items-center justify-end gap-1.5">
+                                <button id="muteBtn" type="button" class="volume-mute-btn magnetic-target ios-tap" title="Tắt / Bật tiếng" aria-label="Toggle mute">
+                                    <i id="volumeIcon" class="ri-volume-up-line text-xs"></i>
+                                </button>
+                                <input id="volumeBar" type="range" min="0" max="1" step="0.01" value="1" class="producer-slider volume-slider" aria-label="Âm lượng">
+                            </div>
+                        </div>
+
+                        <!-- Danh sách phát 3 bài (Playlist) -->
+                        <div class="playlist-section flex flex-col gap-1 pt-1.5 border-t border-white/10">
+                            <div class="text-[9px] font-mono uppercase tracking-wider text-zinc-400 px-1 mb-0.5 flex items-center justify-between">
+                                <span>DANH SÁCH BÀI HÁT (3)</span>
+                                <span id="detailTrackIndex" class="text-zinc-500">01 / 03</span>
+                            </div>
+
+                            <div id="playlistContainer" class="flex flex-col gap-1">
+                                <!-- Track 0 -->
+                                <div class="playlist-item magnetic-target ios-tap p-1.5 px-2 rounded-lg flex items-center justify-between cursor-pointer" data-index="0">
+                                    <div class="flex items-center gap-2 min-w-0">
+                                        <span class="track-number text-[10px] font-mono text-zinc-500 w-3">01</span>
+                                        <div class="overflow-hidden text-left">
+                                            <div class="track-name text-[11px] font-semibold text-white truncate">Cho Bản Thân Này</div>
+                                            <div class="text-[9px] text-zinc-400">Hà Bin</div>
+                                        </div>
+                                    </div>
+                                    <div class="track-playing-badge text-violet-300 text-xs">
+                                        <i class="ri-volume-up-line"></i>
+                                    </div>
+                                </div>
+
+                                <!-- Track 1 -->
+                                <div class="playlist-item magnetic-target ios-tap p-1.5 px-2 rounded-lg flex items-center justify-between cursor-pointer" data-index="1">
+                                    <div class="flex items-center gap-2 min-w-0">
+                                        <span class="track-number text-[10px] font-mono text-zinc-500 w-3">02</span>
+                                        <div class="overflow-hidden text-left">
+                                            <div class="track-name text-[11px] font-semibold text-white truncate">Hải Sao</div>
+                                            <div class="text-[9px] text-zinc-400">HVK</div>
+                                        </div>
+                                    </div>
+                                    <div class="track-playing-badge text-violet-300 text-xs">
+                                        <i class="ri-volume-up-line"></i>
+                                    </div>
+                                </div>
+
+                                <!-- Track 2 -->
+                                <div class="playlist-item magnetic-target ios-tap p-1.5 px-2 rounded-lg flex items-center justify-between cursor-pointer" data-index="2">
+                                    <div class="flex items-center gap-2 min-w-0">
+                                        <span class="track-number text-[10px] font-mono text-zinc-500 w-3">03</span>
+                                        <div class="overflow-hidden text-left">
+                                            <div class="track-name text-[11px] font-semibold text-white truncate">Người Em Cố Đô 2</div>
+                                            <div class="text-[9px] text-zinc-400">HVK</div>
+                                        </div>
+                                    </div>
+                                    <div class="track-playing-badge text-violet-300 text-xs">
+                                        <i class="ri-volume-up-line"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
                 </div>
-                <div class="text-left">
-                    <div class="text-xs font-bold text-white">Discord Server</div>
-                    <div class="text-[11px] text-slate-400 flex items-center gap-1.5 mt-0.5">
-                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-                        <span>Tham gia server cộng đồng</span>
-                    </div>
-                </div>
-            </div>
 
-            <!-- Nút tham gia server -->
-            <a href="https://discord.gg/Q2HBwddZG" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs flex items-center justify-center gap-1.5 shadow-lg shadow-indigo-600/30 hover:scale-[1.02] active:scale-[0.98] transition-all flex-shrink-0">
-                <i class="ri-user-add-line"></i>
-                <span>Tham Gia Server</span>
-            </a>
-        </section>
+            </aside>
 
-    </main>
+        </div>
+    </div>
 
+    <!-- JavaScript xử lý 3D Spatial Stage, Canvas Particles, Magnetic Cursor & Hybrid Audio -->
+    <script src="js/main.js"></script>
 </body>
 
 </html>
